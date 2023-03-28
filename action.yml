@@ -15,7 +15,7 @@ inputs:
     default: "app/build.gradle"
 outputs:
   new-version-number: # id of output
-  description: 'The new version number' 
+    description: 'The new version number' 
 runs:
   using: 'node16'
   main: 'index.js'
