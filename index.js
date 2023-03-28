@@ -27,7 +27,7 @@ try {
         let lastPartVersion = 0;
         
         if(newVersionParts.length > 0) {
-            lastPartMayor = parseInt(versionParts[0].substring(1));
+            lastPartMayor = parseInt(versionParts[0]);
             lastPartMinor = parseInt(versionParts[1]);
             lastPartVersion = parseInt(versionParts[2]) + 1;
           
