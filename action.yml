@@ -16,6 +16,8 @@ inputs:
 outputs:
   new-version-number: # id of output
     description: 'The new version number' 
+  new-version-code:
+    description: 'The new version code' 
 runs:
   using: 'node16'
   main: 'index.js'
