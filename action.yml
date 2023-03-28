@@ -1,0 +1,21 @@
+name: 'Create Version'
+description: 'Create version number for Android'
+inputs:
+  versionNumber:  # id of input
+    description: 'Current version number'
+    required: true
+    default: '1.0.0'
+  platform:  # id of input
+    description: 'Platfrom input'
+    required: true
+    default: 'android'
+  gradlePath:
+    description: "Gradle path to override version"
+    required: true
+    default: "app/build.gradle"
+outputs:
+  new-version-number: # id of output
+    description: 'The new version number' 
+runs:
+  using: 'node16'
+  main: 'index.js'
