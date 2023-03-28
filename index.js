@@ -64,13 +64,13 @@ try {
             newGradle = data;
             if (versionCode.length > 0){
               newGradle = newGradle.replace(versionCodeRegexPattern, `$1${versionCode}`);
-                core.setOutput( "new-version-code",`v${versionCode}`);
+                core.setOutput( "new-version-code",`${versionCode}`);
             }
                
             if (versionName.length > 0){
                 newGradle = newGradle.replace(versionNameRegexPattern, `$1\"${finalNewVersion}\"`);
                 console.log(`finalNewVersion: ${finalNewVersion}`);
-                core.setOutput( "new-version-number",`v${finalNewVersion}`);
+                core.setOutput( "new-version-number",`${finalNewVersion}`);
             }
                 
             fs.writeFile(gradlePath, newGradle, function (err) {
