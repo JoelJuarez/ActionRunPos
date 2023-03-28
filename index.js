@@ -10,11 +10,11 @@ const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 try {
     const platform = core.getInput('platform');
     if (platform === 'android') {
+         console.log(`platform -> ${platform} <--`);
         // path del gradle
         const gradlePath = core.getInput('gradlePath');
         //version actual
         const versionName = core.getInput('versionNumber');
-        
         console.log(`gradlePath -> ${gradlePath}`);
         console.log(`versionName -> ${versionName}`);
         
