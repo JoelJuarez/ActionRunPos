@@ -30,9 +30,10 @@ try {
             lastPartMayor = parseInt(versionParts[0]);
             lastPartMinor = parseInt(versionParts[1]);
             lastPartVersion = parseInt(versionParts[2]) + 1;
-             console.log(`lastPartMayor -> ${lastPartMayor}`);
-            console.log(`lastPartMinor -> ${lastPartMinor}`);
-            console.log(`lastPartVersion -> ${lastPartVersion}`);
+            
+             console.log(`lastPartMayor -> ${versionParts[0]}`);
+            console.log(`lastPartMinor -> ${versionParts[1]}`);
+            console.log(`lastPartVersion -> ${versionParts[2]}`);
             
           
             if(lastPartVersion > 99) {
