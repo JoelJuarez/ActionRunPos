@@ -35,10 +35,10 @@ try {
             console.log(`lastPartMinor -> ${versionParts[1]}`);
             console.log(`lastPartVersion -> ${versionParts[2]}`);
          
-         let initSing = lastPartVersion.indexOf("(");
-         let finalSing = lastPartVersion.indexOf(")");
+         let initSing = versionName.indexOf("(");
+         let finalSing = versionName.indexOf(")");
             
-          console.log(`lastPartVersion -> ${lastPartVersion.substring(initSing, finalSing)}`);
+          console.log(`lastPartVersion -> ${versionName.substring(initSing, finalSing)}`);
             
           
             if(lastPartVersion > 99) {
