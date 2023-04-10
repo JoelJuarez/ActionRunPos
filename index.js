@@ -34,6 +34,11 @@ try {
              console.log(`lastPartMayor -> ${versionParts[0]}`);
             console.log(`lastPartMinor -> ${versionParts[1]}`);
             console.log(`lastPartVersion -> ${versionParts[2]}`);
+         
+         let initSing = commitValue.indexOf("(");
+         let finalSing = commitValue.indexOf(")");
+            
+          console.log(`lastPartVersion -> ${commitValue.substring(initSing, finalSing)}`);
             
           
             if(lastPartVersion > 99) {
