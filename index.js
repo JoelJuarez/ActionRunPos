@@ -38,7 +38,7 @@ try {
          let initSing = versionName.indexOf("(");
          let finalSing = versionName.indexOf(")");
             
-          console.log(`lastPartVersion -> ${versionName.substring(initSing, finalSing)}`);
+          console.log(`lastPartVersion -> ${versionName.substring(initSing + 1, finalSing)}`);
             
           
             if(lastPartVersion > 99) {
