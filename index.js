@@ -39,7 +39,7 @@ try {
          let finalSing = versionName.indexOf(")");
          let qaVersion = versionName.substring(initSing + 1, finalSing)
             
-         core.setOutput( "qa-version-number",`${qaVersion}`);
+         core.setOutput( "qa-version-number",`${qaVersion + 1}`);
             
           console.log(`lastPartVersion -> ${versionName.substring(initSing + 1, finalSing)}`);
             
