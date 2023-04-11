@@ -18,6 +18,10 @@ outputs:
     description: 'The new version number' 
   new-version-code: # id of output
     description: 'The new version code' 
+  qa-version-number: # id of output
+    description: 'The version code in ()' 
+    
+    
 runs:
   using: 'node16'
   main: 'index.js'
