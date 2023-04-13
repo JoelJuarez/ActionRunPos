@@ -75,11 +75,12 @@ try {
         
         
         console.log(`gradlePath -> ${gradlePath}`);
-        console.log(`versionName -> ${versionName}`);
+        console.log(`versionComment -> ${versionComment}`);
         
         var versionParts = versionName.split('.');
+         console.log(`succes : ... ${versionInput}`);
         if (versionInput) {
-             console.log(`succes : ... ${versionInput}`);
+             
            var versionParts = versionInput.split('.');
         } else if (versionComment != 0) {
             var versionParts = versionComment.split('.');
