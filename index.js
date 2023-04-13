@@ -26,7 +26,7 @@ function getCommentValue (commitValue) {
                console.log(`environmenttype.. -> ${environmenttype}`);
             console.log(`newVersion.. -> ${newVersion}`);
             
-          return ${newVersion}
+          return newVersion
       }
      console.log(`newVersion -> 0`);
     return 0
