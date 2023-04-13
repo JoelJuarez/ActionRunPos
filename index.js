@@ -66,12 +66,14 @@ try {
         const versionInput = core.getInput('numberVersion');
          //commit message
         const commitMessage = core.getInput('commitMessage');
-        
+         
+         console.log(`commitMessage -> ${commitMessage}`);
+         
         if (environmentRegexPattern.test(commitMessage)){
-             getCommentValue(commitMessage);
+           var versionComment =  getCommentValue(commitMessage);
         }
         
-       var versionComment = getCommentValue(typeEnvironment)
+       setEnvironment(typeEnvironment)
         
         
         console.log(`gradlePath -> ${gradlePath}`);
