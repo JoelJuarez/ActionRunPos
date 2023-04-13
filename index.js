@@ -10,7 +10,7 @@ const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 const environmentRegexPattern = /(aplication(?:\s|=)*)(.*)/;
 
 
-//message aplication:Quality@2.3.2@@ o aplication:Release@2.3.2@@ o aplication:Quality@0@@
+//message aplication:Quality@2.3.2&& o aplication:Release@2.3.2&& o aplication:Quality@0&&
 
 function getCommentValue (commitValue) {
      let variantVar = commitValue.indexOf("aplication:");
