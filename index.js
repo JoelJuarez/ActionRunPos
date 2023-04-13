@@ -95,7 +95,7 @@ try {
         versionFinalParts.forEach(element => {
             let newPart = element;
             if(element.length === 1) {
-                newPart = `${element}0`;
+                newPart = `${element}`;
             }
             versionCode = `${versionCode}${newPart}`;
         });
