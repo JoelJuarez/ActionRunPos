@@ -71,7 +71,7 @@ try {
              getCommentValue(commitMessage);
         }
         
-       var versionComment = setEnvironment(typeEnvironment)
+       var versionComment = getCommentValue(typeEnvironment)
         
         
         console.log(`gradlePath -> ${gradlePath}`);
