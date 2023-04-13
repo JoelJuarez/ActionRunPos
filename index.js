@@ -7,20 +7,32 @@ const versionCodeRegexPattern = /(versionCode(?:\s|=)*)(.*)/;
 // versionName — A string used as the version number shown to users [...] -> https://developer.android.com/studio/publish/versioning
 const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 
-try {
-    const platform = core.getInput('platform');
-    if (platform === 'android') {
-         console.log(`platform -> ${platform} <--`);
-        // path del gradle
-        const gradlePath = core.getInput('gradlePath');
-        //version actual
-        const versionName = core.getInput('versionNumber');
-        //ambiente seleccionado
-        const typeEnvironment = core.getInput('typeEnvironment');
-        // version seleccionada
-        const versionInput = core.getInput('numberVersion');
-        
-        if(typeEnvironment == "Quality") {
+const environmentRegexPattern = /(aplication(?:\s|=)*)(.*)/;
+
+
+//message aplication:Quality@2.3.2@@ o aplication:Release@2.3.2@@ o aplication:Quality@0@@
+
+function getCommentValue (commitValue) {
+     let variantVar = commitValue.indexOf("aplication:");
+     let closeString = commitValue.indexOf("&&");
+     let flavorValue = commitValue.substring(variantVar + 11, closeString);
+    
+    console.log(`commitMessage function -->  ${commitValue} <---`);
+    let data  = flavorValue.split('@');
+     if (data.length > 0) {
+            let environmenttype = data[0]
+            let newVersion = data[1]
+            setEnvironment(environmenttype)
+            
+            return newVersion
+     
+      }
+    return 0
+
+}
+
+function setEnvironment(typeEnvironment) {
+  if(typeEnvironment == "Quality") {
              core.setOutput( "assemble_value",`assembleDebug`);
              core.setOutput( "final_path_apk",`uat/debug/app-uat-debug.apk`);
             console.log(`assemble_value -> assembleDebug`);
@@ -37,6 +49,29 @@ try {
             console.log(`assemble_value -> assembleDebug`);
             console.log(`final_path_apk -> uat/debug/app-uat-debug.apk`);
         }
+}
+
+
+try {
+    const platform = core.getInput('platform');
+    if (platform === 'android') {
+         console.log(`platform -> ${platform} <--`);
+        // path del gradle
+        const gradlePath = core.getInput('gradlePath');
+        //version actual
+        const versionName = core.getInput('versionNumber');
+        //ambiente seleccionado
+        const typeEnvironment = core.getInput('typeEnvironment');
+        // version seleccionada
+        const versionInput = core.getInput('numberVersion');
+         //commit message
+        const commitMessage = core.getInput('commitMessage');
+        
+        if (environmentRegexPattern.test(commitMessage)){
+             getCommentValue(commitMessage);
+        }
+        
+       var versionComment = setEnvironment(typeEnvironment)
         
         
         console.log(`gradlePath -> ${gradlePath}`);
@@ -45,8 +80,10 @@ try {
         var versionParts = versionName.split('.');
         if (versionInput) {
              console.log(`succes : ... ${versionInput}`);
-         var versionParts = versionInput.split('.');
-        } 
+           var versionParts = versionInput.split('.');
+        } else if (versionComment != 0) {
+            var versionParts = versionComment.split('.');
+        }
         
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
