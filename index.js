@@ -16,7 +16,9 @@ function getCommentValue (commitValue) {
      let variantVar = commitValue.indexOf("aplication:");
      let closeString = commitValue.indexOf("&&");
      let flavorValue = commitValue.substring(variantVar + 11, closeString);
-    
+     
+    console.log(`flavorValue function -->  ${flavorValue} <---`);
+     
     console.log(`commitMessage function -->  ${commitValue} <---`);
     let data  = flavorValue.split('@');
      if (data.length > 0) {
@@ -70,7 +72,7 @@ try {
         const commitMessage = core.getInput('commitMessage');
          
          console.log(`commitMessage -> ${commitMessage}`);
-         
+         var versionComment = 0
         if (environmentRegexPattern.test(commitMessage)){
            var versionComment =  getCommentValue(commitMessage);
         }
