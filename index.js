@@ -23,10 +23,10 @@ function getCommentValue (commitValue) {
             let environmenttype = data[0]
             let newVersion = data[1]
             setEnvironment(environmenttype)
-               console.log(`environmenttype.. -> environmenttype`);
-            console.log(`newVersion.. -> newVersion`);
+               console.log(`environmenttype.. -> ${environmenttype}`);
+            console.log(`newVersion.. -> ${newVersion}`);
             
-          return newVersion
+          return ${newVersion}
       }
      console.log(`newVersion -> 0`);
     return 0
