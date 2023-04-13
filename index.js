@@ -44,8 +44,8 @@ try {
         
         var versionParts = versionName.split('.');
         if (versionInput) {
-             console.log(`succes : ... ${inputVersion}`);
-         var versionParts = inputVersion.split('.');
+             console.log(`succes : ... ${versionInput}`);
+         var versionParts = versionInput.split('.');
         } 
         
         let finalNewVersion = '';
