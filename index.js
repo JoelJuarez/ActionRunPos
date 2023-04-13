@@ -15,10 +15,39 @@ try {
         const gradlePath = core.getInput('gradlePath');
         //version actual
         const versionName = core.getInput('versionNumber');
+        //ambiente seleccionado
+        const typeEnvironment = core.getInput('typeEnvironment');
+        // version seleccionada
+        const versionInput = core.getInput('numberVersion');
+        
+        if(typeEnvironment == "Quality") {
+             core.setOutput( "assemble_value",`assembleDebug`);
+             core.setOutput( "final_path_apk",`uat/debug/app-uat-debug.apk`);
+            console.log(`assemble_value -> assembleDebug`);
+            console.log(`final_path_apk -> uat/debug/app-uat-debug.apk`);
+            
+        } else if(typeEnvironment == "Release") { 
+             core.setOutput( "assemble_value",`assembleProdDebug`);
+             core.setOutput( "final_path_apk",`prod/debug/app-prod-debug.apk`);
+            console.log(`assemble_value -> assembleProdDebug`);
+            console.log(`final_path_apk -> prod/debug/app-prod-debug.apk`);
+        } else {
+            core.setOutput( "assemble_value",`assembleDebug`);
+            core.setOutput( "final_path_apk",`uat/debug/app-uat-debug.apk`);
+            console.log(`assemble_value -> assembleDebug`);
+            console.log(`final_path_apk -> uat/debug/app-uat-debug.apk`);
+        }
+        
+        
         console.log(`gradlePath -> ${gradlePath}`);
         console.log(`versionName -> ${versionName}`);
         
-        let versionParts = versionName.split('.');
+        var versionParts = versionName.split('.');
+        if (versionInput) {
+             console.log(`succes : ... ${inputVersion}`);
+         var versionParts = inputVersion.split('.');
+        } 
+        
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
 
@@ -29,11 +58,16 @@ try {
         if(newVersionParts.length > 0) {
             lastPartMayor = parseInt(versionParts[0]);
             lastPartMinor = parseInt(versionParts[1]);
-            lastPartVersion = parseInt(versionParts[2]) + 1;
+            if(versionInput){
+                 lastPartVersion = parseInt(versionParts[2]);
+            } else {
+                lastPartVersion = parseInt(versionParts[2]) + 1;
+            }
+           
             
-             console.log(`lastPartMayor -> ${versionParts[0]}`);
-            console.log(`lastPartMinor -> ${versionParts[1]}`);
-            console.log(`lastPartVersion -> ${versionParts[2]}`);
+            console.log(`lastPartMayor -> ${lastPartMayor}`);
+            console.log(`lastPartMinor -> ${lastPartMinor}`);
+            console.log(`lastPartVersion -> ${lastPartVersion}`);
          
          let initSing = versionName.indexOf("(");
          let finalSing = versionName.indexOf(")");
