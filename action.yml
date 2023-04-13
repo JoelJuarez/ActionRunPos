@@ -13,13 +13,26 @@ inputs:
     description: "Gradle path to override version"
     required: true
     default: "app/build.gradle"
+  numberVersion:  # id of input
+    description: 'number of verion build app'
+    required: false
+  typeEnvironment:  # id of input
+    description: 'environment build app'
+    required: false
+  commitMessage:  # id of input
+    description: 'Commit message '
+    required: true
 outputs:
   new-version-number: # id of output
     description: 'The new version number' 
   new-version-code: # id of output
     description: 'The new version code' 
   qa-version-number: # id of output
-    description: 'The version code in ()' 
+    description: 'The version code in ()'
+  assemble_value: # id of output
+    description: 'value for assemble'
+  final_path_apk: # id of output
+    description: 'final path apk'
     
     
 runs:
