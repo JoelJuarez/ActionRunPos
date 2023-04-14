@@ -43,10 +43,10 @@ function setEnvironment(typeEnvironment) {
             console.log(`final_path_apk -> uat/debug/app-uat-debug.apk`);
             
         } else if(typeEnvironment == "Release") { 
-             core.setOutput( "assemble_value",`assembleProdDebug`);
-             core.setOutput( "final_path_apk",`prod/debug/app-prod-debug.apk`);
-            console.log(`assemble_value -> assembleProdDebug`);
-            console.log(`final_path_apk -> prod/debug/app-prod-debug.apk`);
+             core.setOutput( "assemble_value",`assembleProdRelease`);
+             core.setOutput( "final_path_apk",`prod/release/app-prod-release.apk`);
+            console.log(`assemble_value -> assembleProdRelease`);
+            console.log(`final_path_apk -> prod/release/app-prod-release.apk`);
         } else {
             core.setOutput( "assemble_value",`assembleDebug`);
             core.setOutput( "final_path_apk",`uat/debug/app-uat-debug.apk`);
